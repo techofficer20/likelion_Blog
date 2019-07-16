@@ -29,3 +29,8 @@ def create(request):
     blog.date = timezone.datetime.now()
     blog.save()
     return redirect('/blog/' + str(blog.id))
+
+def delete(request, blog_id):
+    blog = Blog.objects.get(id = blog_id)
+    blog.delete()
+    return redirect('/')
