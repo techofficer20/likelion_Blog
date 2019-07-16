@@ -7,6 +7,11 @@
     <title>Document</title>
 </head>
 <body>
- <h1>Hello World!</h1>   
+    {% for blogs in blog.all %}
+        <h2>제목: {{blogs.title}}</h2>
+        <h3>날짜: {{blogs.date}}</h3>
+        <h3>본문: {{blogs.body}}</h3>
+        <br/>
+    {% endfor %}
 </body>
 </html>
