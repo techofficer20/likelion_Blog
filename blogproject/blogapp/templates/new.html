@@ -9,10 +9,11 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
     <style>
-        *{
+        * {
             font-family: "Jua";
         }
-        .card{
+
+        .card {
             width: 80%;
         }
     </style>
@@ -30,7 +31,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'new' %}">글쓰기 <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'new' %}">글쓰기<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
@@ -60,19 +61,14 @@
     <br />
     <br />
     <div class="container">
-        {% for blogs in blog.all %}
-        <div class="card">
-            <div class="card-header">
-                {{blogs.date}}
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">{{blogs.title}}</h5>
-                <p class="card-text">{{blogs.summary}}</p>
-                <a href="{% url 'detail' blogs.id %}" class="btn btn-primary">More</a>
-            </div>
-        </div>
-        <br />
-        {% endfor %}
+        <form action="{% url 'create' %}">
+            <h2>제목:</h2> <input type="text" name="title">
+            <br/>
+            <br/>
+            <h3>본문:</h3> <textarea name="body" id="" cols="30" rows="10"></textarea>
+            <br/>
+            <input type="submit" value="제출하기" class="btn btn-dark">
+        </form>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
