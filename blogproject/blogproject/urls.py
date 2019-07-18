@@ -19,11 +19,7 @@ import blogapp.views
 import accountsapp.views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', blogapp.views.index, name = 'index'),
-    path('blog/<int:blog_id>/', blogapp.views.detail, name = 'detail'),
-    path('blog/new', blogapp.views.new, name = 'new'),
-    path('blog/create', blogapp.views.create, name = 'create'),
-    path('blog/<int:blog_id>/delete', blogapp.views.delete, name = 'delete'),
-    path('blog/login', accountsapp.views.login, name = 'login'),
+    path('blog/', include('blogapp.urls')),
+    path('account/', include('accountsapp.urls')),
     path('accounts/', include('allauth.urls')),
 ]
